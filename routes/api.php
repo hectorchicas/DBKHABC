@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\http\controllers\respuestaController;
+use App\http\controllers\PaisController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,8 @@ use App\http\controllers\respuestaController;
 
 
 Route::get("/ejecutar",[respuestaController::class,"index"]);
+
+Route::post("/nuevo",[PaisController::class,"crearPais"]);
 
 
 
