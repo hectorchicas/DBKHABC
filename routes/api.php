@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\http\controllers\respuestaController;
 use App\http\controllers\PaisController;
-
+use App\Http\Controllers\API\AuthController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -29,7 +29,16 @@ Route::get("/ejecutar",[respuestaController::class,"index"]);
 
 Route::post("/nuevo",[PaisController::class,"crearPais"]);
 
+Route::post('/login',[AuthController::class,'login']);
+Route::post('/registrar',[AuthController::class,'register']);
+Route::post('/salir',[AuthController::class,'logout']);
 
+Route::group(['middleware' => ['auth:sanctum']], function () {
+
+    
+    
+
+});
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
